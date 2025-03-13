@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Boda</title>
+
+	
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            background: url('https://static.vecteezy.com/system/resources/previews/015/394/004/non_2x/watercolor-frame-with-pink-magnolia-branches-hand-drawn-illustration-with-flowers-and-leaves-isolated-background-for-wedding-invitations-or-greeting-cards-floral-template-for-any-design-vector.jpg') no-repeat center center/cover;
+            padding: 0;
+            margin: 0;
+            color: #5a3e36;
+        }
+
+        .header {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 1) 100%), 
+                        url('https://www.sfy.org.uk/wp-content/uploads/2021/03/Flower-Boarder-Banner-3x1-WEB-1-scaled.jpg') no-repeat center center/cover;
+            padding: 40px 10px;
+            text-align: center;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 7vw; /* Tamaño dinámico */
+            color: #b76e79;
+            margin-bottom: 5px;
+        }
+
+        .header h2 {
+            font-size: 4vw;
+            color: #5a3e36;
+            font-weight: 400;
+        }
+
+        .invitation {
+    background: rgba(255, 255, 255, 0.3); /* Transparencia */
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    margin: 50px auto 20px auto; /* Aumenta separación arriba y centra */
+    position: relative;
+    text-align: center;
+    z-index: 10;
+}
+
+        .details {
+            font-size: 4vw;
+            margin: 10px 0;
+            font-weight: 600;
+        }
+
+        .countdown {
+            font-size: 5vw;
+            font-weight: bold;
+            color: #b76e79;
+            margin-top: 10px;
+        }
+
+        .couple-img {
+            width: 80%;
+            max-width: 380px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #b76e79;
+            margin-top: 15px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 25px;
+            font-size: 4vw;
+            color: white;
+            background: #b76e79;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.2s;
+        }
+
+        .button:hover {
+            background: #a05262;
+            transform: scale(1.05);
+        }
+
+        .divider {
+            width: 60px;
+            height: 4px;
+            background: #b76e79;
+            margin: 20px auto;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1.5s forwards ease-in-out;
+        }
+
+        /* Media Queries para ajustar en móviles */
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 5px;
+            }
+
+            .header h1 {
+                font-size: 10vw;
+            }
+
+            .header h2 {
+                font-size: 5vw;
+            }
+
+            .details, .button {
+                font-size: 5vw;
+            }
+        }
+    </style>
+    <script>
+        function updateCountdown() {
+            const weddingDate = new Date('2025-04-26T17:00:00').getTime();
+            setInterval(() => {
+                const now = new Date().getTime();
+                const diff = weddingDate - now;
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                document.getElementById("countdown").innerHTML = `${days} días, ${hours} horas, ${minutes} minutos y ${seconds} segundos`;
+            }, 1000);
+        }
+        window.onload = updateCountdown;
+    </script>
+</head>
+<body>
+    <div class="header fade-in">
+        <h1>Nataly & Edwin</h1>
+        <h2>Nos casamos y queremos compartir este día especial contigo</h2>
+    </div>
+    <div class="invitation fade-in">
+        <img src="https://i.postimg.cc/PJQFzWT9/pareja.jpg" class="couple-img">
+        <div class="divider"></div>
+        <p class="details">📅 Fecha: 26 de Abril de 2025 </p>
+        <p class="details">📍 Lugar: Salón Colonial</p>
+        <p class="details">⏰ Hora: 6:00 PM</p>
+        <p class="countdown" id="countdown"></p>
+        <div class="divider"></div>
+        <p class="details">💖 ¡Esperamos contar con tu presencia! 💖</p>
+        
+        <!-- Apartado de ubicación -->
+        <div class="divider"></div>
+        <p class="details">📍 ¿Cómo llegar?</p>
+        <a href="https://maps.app.goo.gl/QrHKUF9WXzkQrwcz7" class="button" target="_blank">Ver en Google Maps</a>
+
+        <div class="divider"></div>
+        <a href="https://wa.me/+525514813899" class="button">Confirmar por WhatsApp</a>
+    </div>
+</body>
+</html>
